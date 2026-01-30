@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Studio de modélisation & impression 3D</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Animate on Scroll -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+
+  <!-- EmailJS -->
+  <script src="https://cdn.jsdelivr.net/npm/emailjs@4/dist/email.min.js"></script>
+  <script>
+    (function(){
+      emailjs.init("PUlweQmFKtNsETwP4");
+    })();
+  </script>
+
+  <style>
+    :root {
+      --bg-dark: #050505;
+      --bg-card: #121212;
+      --accent: #4f8cff;
+      --text: #ffffff;
+      --muted: #b3b3b3;
+    }
+
+    * {
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
+
+    body {
+      margin: 0;
+      background: radial-gradient(circle at top, #0f172a, #000);
+      color: var(--text);
+    }
+
+    section {
+      padding: 80px 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    h1 { font-size: 3rem; margin-bottom: 20px; }
+    h2 { font-size: 2rem; margin-bottom: 20px; }
+    h3 { margin-bottom: 10px; }
+
+    p { color: var(--muted); line-height: 1.6; }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .card {
+      background: var(--bg-card);
+      border-radius: 20px;
+      padding: 30px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+    }
+
+    .offers {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+    }
+
+    .price {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--accent);
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    input, textarea, select {
+      padding: 14px;
+      border-radius: 10px;
+      border: none;
+      background: #1e1e1e;
+      color: white;
+    }
+
+    label {
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    button {
+      padding: 14px;
+      border-radius: 12px;
+      border: none;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      background: linear-gradient(135deg, var(--accent), #2563eb);
+      color: white;
+    }
+
+    footer {
+      text-align: center;
+      padding: 40px;
+      color: #777;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div data-aos="fade-right">
+      <img src="logo.png" alt="Logo" style="height:70px; margin-bottom:20px;">
+      <h1>Studio de modélisation & impression 3D</h1>
+      <p>
+        Conception 3D professionnelle, rendus réalistes et impression
+        industrielle via Xometry. De l'idée au produit fini.
+      </p>
+    </div>
+
+    <div class="card" data-aos="fade-left">
+      <h2>Estimation indicative</h2>
+      <p>À partir de</p>
+      <p class="price">45 € – 160 €</p>
+    </div>
+  </section>
+
+  <!-- OFFRES -->
+  <section>
+    <h2 data-aos="fade-up">Offres</h2>
+    <div class="offers">
+      <div class="card" data-aos="zoom-in">
+        <h3>Modélisation 3D</h3>
+        <p>Fichiers exploitables, rendus 3D téléchargeables.</p>
+        <p class="price">À partir de 45 €</p>
+      </div>
+
+      <div class="card" data-aos="zoom-in" data-aos-delay="150">
+        <h3>Modélisation + Impression</h3>
+        <p>Fabrication industrielle via Xometry, contrôle qualité.</p>
+        <p class="price">À partir de 80 €</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FORMULAIRE UNIQUE (EmailJS) -->
+  <section>
+    <h2 data-aos="fade-up">Demande de devis</h2>
+    <div class="card" data-aos="fade-up">
+      <form id="contact-form">
+        <input type="text" name="name" placeholder="Nom" required>
+        <input type="email" name="email" placeholder="Email" required>
+
+        <select name="offer" required>
+          <option value="Modélisation 3D">Modélisation 3D</option>
+          <option value="Modélisation + Impression">Modélisation + Impression</option>
+        </select>
+
+        <textarea name="message" rows="5" placeholder="Décrivez votre besoin technique" required></textarea>
+
+        <label>
+          <input type="checkbox" name="guarantee">
+          Garantie qualité produit fini
+        </label>
+
+        <label>
+          <input type="checkbox" required>
+          J'accepte d'être contacté par email à des fins commerciales
+        </label>
+
+        <button type="submit">Envoyer la demande</button>
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    © Studio 3D — Ingénierie & design premium
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({ duration: 900, once: true });
+  </script>
+
+  <script>
+    document.getElementById("contact-form").addEventListener("submit", function(event) {
+      event.preventDefault();
+
+      emailjs.sendForm(
+        "service_enyvx0b",
+        "template_wtq4vwf",
+        this
+      )
+      .then(() => {
+        alert("Demande envoyée avec succès !");
+        this.reset();
+      })
+      .catch((error) => {
+        alert("Erreur lors de l'envoi");
+        console.log(error);
+      });
+    });
+  </script>
+
+</body>
+</html>
+
